@@ -1,21 +1,50 @@
 import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header.js';
 import Auth from './Auth.js';
 import Home from './Home.js';
+import ToDos from './Todos.js';
 
-function App() {
-  return (
-    <body className="body">
+class App extends Component {
+  state = { 
+    token: localStorage.getItem('TOKEN'),
+   }
+  //  setToken = (e) => {
+  //    this.setState({token: (e)})
+  //  }
+  render() { 
+    console.log(this.state.token)
+    return ( 
+      <section className="body">
     <BrowserRouter>
       <Header/>
       <Switch>
-        <Route path="/auth" component={Auth}></Route>
+        <Route path="/signin" 
+                render={(routerProps) => (
+                  <Auth type="signin"
+                  // setToken={this.setToken}
+                  {...routerProps}/>
+                )}></Route>
+        <Route path="/signup" 
+                render={(routerProps) => (
+                  <Auth type="signup"
+                  // setToken={this.setToken}
+                  {...routerProps}/>
+                )}></Route>
+        <Route path="/todos" 
+                render={(routerProps) => 
+                  this.state.token ? (
+                  <ToDos {...routerProps}/>
+                ) : (
+                  <Redirect to="/signin"/>
+                )}/>
         <Route exact path="/" component={Home}></Route>
       </Switch>
     </BrowserRouter>
-    </body>
-  )
+    </section>
+     );
+  }
 }
-
+ 
 export default App;

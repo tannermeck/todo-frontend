@@ -8,3 +8,12 @@ input {
     height: 25px;
     margin-left: 10px;
 }
+.email input {
+    margin-left: 48px;
+}
+#submit-button {
+    margin-left: 210px;
+}
+h1 {
+    margin-left: 80px;
+}

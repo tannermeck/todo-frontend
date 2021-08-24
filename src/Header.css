@@ -2,11 +2,14 @@
     background-color:brown;
     height: 70px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 a {
     padding: 10px;
     color: white;
+    text-decoration: none;
 }
 a.active {
     color: aqua;
