@@ -10,11 +10,10 @@ class App extends Component {
   state = { 
     token: localStorage.getItem('TOKEN'),
    }
-  //  setToken = (e) => {
-  //    this.setState({token: (e)})
-  //  }
+   setToken = (e) => {
+     this.setState({token: (e)})
+   }
   render() { 
-    console.log(this.state.token)
     return ( 
       <section className="body">
     <BrowserRouter>
@@ -23,13 +22,13 @@ class App extends Component {
         <Route path="/signin" 
                 render={(routerProps) => (
                   <Auth type="signin"
-                  // setToken={this.setToken}
+                  setToken={this.setToken}
                   {...routerProps}/>
                 )}></Route>
         <Route path="/signup" 
                 render={(routerProps) => (
                   <Auth type="signup"
-                  // setToken={this.setToken}
+                  setToken={this.setToken}
                   {...routerProps}/>
                 )}></Route>
         <Route path="/todos" 
