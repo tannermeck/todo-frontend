@@ -5,6 +5,9 @@ import './Todo.css'
 class Todos extends Component {
     state = { todo: [], updateTodo: {}, newTodo:'' }
     componentDidMount = async() => {
+        this.fetchTodos()
+    }
+    fetchTodos = async() => {
         const data = await getTodos()
         this.setState({todo: data})
     }
@@ -17,7 +20,7 @@ class Todos extends Component {
             user_id: item.user_id
         }
         await updateTodos(newData)
-        await getTodos()
+        this.fetchTodos()
     }
     handleSubmit = async(e) => {
         e.preventDefault()
@@ -28,7 +31,7 @@ class Todos extends Component {
             user_id: userId
         }
         await postTodos(newTodo)
-        await getTodos()
+        this.fetchTodos()
     }
     render() { 
         return ( 
@@ -38,7 +41,7 @@ class Todos extends Component {
                 {this.state.todo.map((item) => (
                     <div className="checkbox">
                       
-                        <input key={item.id}
+                        <input key={item.id} checked={item.completed}
                         value={item.id}
                         onChange={() => this.handleCheckbox(item)}
                         type="checkbox"/>
