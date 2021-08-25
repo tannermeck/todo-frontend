@@ -13,3 +13,15 @@ export async function createToken(login, type){
     localStorage.setItem('TOKEN', result.token)
     return result.token
 }
+export async function getTodos(){
+    const data = `${URL}/api/todos`
+    const response = await fetch(data, {
+        method: 'GET',
+        headers: {
+            'Authorization': localStorage.getItem('TOKEN')
+        }
+    })
+    const result = await response.json();
+    // console.log(result)
+    return result
+}
