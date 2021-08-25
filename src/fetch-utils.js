@@ -18,10 +18,36 @@ export async function getTodos(){
     const response = await fetch(data, {
         method: 'GET',
         headers: {
+            'Content-type': 'application/json',
             'Authorization': localStorage.getItem('TOKEN')
         }
     })
     const result = await response.json();
-    // console.log(result)
+    return result
+}
+export async function updateTodos(todo){
+    const data = `${URL}/api/todos/${todo.id}`
+    const response = await fetch(data, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': localStorage.getItem('TOKEN')
+        },
+        body: JSON.stringify(todo)
+    })
+    const result = await response.json();
+    return result;
+}
+export async function postTodos(newTodo){
+    const data = `${URL}/api/todos`
+    const response = await fetch(data, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': localStorage.getItem('TOKEN')
+        },
+        body: JSON.stringify(newTodo)
+    })
+    const result = await response.json();
     return result
 }

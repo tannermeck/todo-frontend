@@ -1,0 +1,19 @@
+#todo-title {
+    border: 3px solid brown;
+    width:fit-content;
+    padding: 5px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: burlywood;
+    font-size: 30px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px 2px brown;
+    color:crimson;
+}
+.todo-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
