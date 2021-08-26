@@ -1,0 +1,39 @@
+.todo-page {
+    background-color: cadetblue;
+}
+#todo-title {
+    border: 3px solid black;
+    width:fit-content;
+    padding: 5px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-color: burlywood;
+    font-size: 30px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px 2px black;
+    color:crimson;
+}
+.todo-section {
+    display: flex;
+    flex-direction: column;
+    background-image: url('./note-background.jpeg');
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+.checkbox {
+    margin-left: 125px;
+    padding: 12px;
+}
+.checkbox-input:checked + label {
+    text-decoration: line-through;
+}
+#form-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -12,7 +12,7 @@ class Auth extends Component {
         const user = await createToken(
             {email: this.state.email, password: this.state.password},
             this.props.type)
-            // this.props.setToken(user)
+            this.props.setToken(user)
             this.props.history.push("/todos")
     }
     render() { 
