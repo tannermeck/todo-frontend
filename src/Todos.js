@@ -35,33 +35,31 @@ class Todos extends Component {
     }
     render() { 
         return ( 
-            <>
+            <div className="todo-page">
             <section className="todo-section">
                 <h1 id="todo-title">Todo List:</h1>
                 {this.state.todo.map((item) => (
                     <div className="checkbox">
-                      
-                        <input key={item.id} checked={item.completed}
+                        <input className="checkbox-input" key={item.id} checked={item.completed}
                         value={item.id}
                         onChange={() => this.handleCheckbox(item)}
                         type="checkbox"/>
                         <label key={item.todo}>{item.todo}</label>
-                        <label key={item.id + 10}> {item.completed ? 'TRUE' : 'FALSE'}</label>
                     </div>
                 ))}
             </section>
             <section>
                 <div className="todo-input">
                     <h1>Enter New Todo:</h1>
-                    <form onSubmit={this.handleSubmit}>
+                    <form id="form-input" onSubmit={this.handleSubmit}>
                         <input 
                         onChange={(e) => this.setState({newTodo: e.target.value})}
                         type="text" required/>
-                        <button>Submit</button>
+                        <button>Add new Todo</button>
                     </form>
                 </div>
             </section>
-            </>
+            </div>
          );
     }
 }

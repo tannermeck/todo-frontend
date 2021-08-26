@@ -1,0 +1,8 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+ul li {
+    display: flex;
+    justify-content: center;
+}
